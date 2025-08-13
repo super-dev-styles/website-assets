@@ -128,7 +128,7 @@ body {
     }
 
     .menu-collapsed #slide-menu {
-        transform: translateX(-100%);
+        transform: translateX(calc(-100% - 20px));
 
     }
 }
@@ -136,3 +136,4 @@ body {
 html.light .content {
     background-color: #ffffff !important;
 }
+
