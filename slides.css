@@ -26,16 +26,14 @@ body {
     display: none;
 }
 
-/* Применяем стили только для больших экранов */
+
 @media (min-width: 1024px) {
 
-    /* 1. Главный контейнер для меню и контента */
     .slide-container {
         display: flex;
         align-items: flex-start;
     }
 
-    /* 2. Боковое меню */
     #slide-menu {
         display: block;
         position: fixed;
@@ -71,7 +69,6 @@ body {
         background-color: #f2f2f2;
     }
 
-    /* 3. Основной контент внутри контейнера */
     .slide-container > .content {
         flex-grow: 1;
         min-width: 0;
@@ -79,7 +76,6 @@ body {
         background-color: #e8ebf1;
     }
 
-    /* 4. Логика слайдов */
     .slide {
         visibility: hidden; opacity: 0; height: 0; overflow: hidden;
         transition: opacity 0.2s ease-in-out;
@@ -88,7 +84,6 @@ body {
         visibility: visible; opacity: 1; height: auto; overflow: visible;
     }
 
-    /* 5. Кнопки навигации */
     #slide-navigation {
         display: flex;
         justify-content: space-between;
@@ -110,7 +105,6 @@ body {
         cursor: not-allowed;
     }
 
-    /* 6. Кнопка сворачивания меню */
     #menu-toggle {
         display: block;
         position: fixed;
@@ -133,7 +127,6 @@ body {
         transition: all 0.3s;
     }
 
-    /* 7. Стили для свернутого состояния */
     .menu-collapsed #slide-menu {
         transform: translateX(-100%);
 
@@ -142,5 +135,4 @@ body {
 
 html.light .content {
     background-color: #ffffff !important;
-
 }
