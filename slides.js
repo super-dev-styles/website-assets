@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const dbContentArea = contentArea.querySelector('db-content');
     if (!contentArea || !dbContentArea) return;
 
-    // --- 1. Создание главного контейнера и кнопки ---
+
     const slideContainer = document.createElement('div');
     slideContainer.className = 'slide-container';
     document.body.insertBefore(slideContainer, contentArea);
@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', function() {
     let slides = [];
     let menuItems = [];
 
-    // --- 2. Создание слайдов ---
+
     if (h1) {
         const titleSlide = document.createElement('div');
         titleSlide.className = 'slide';
@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     if (slides.length === 0) return;
 
-    // --- 3. Создание бокового меню ---
+
     const menu = document.createElement('nav');
     menu.id = 'slide-menu';
     menuItems.forEach((header, index) => {
@@ -73,17 +73,17 @@ document.addEventListener('DOMContentLoaded', function() {
         link.onclick = (e) => { e.preventDefault(); showSlide(index); };
         menu.appendChild(link);
     });
-    // Добавляем меню в НАЧАЛО контейнера, перед контентом
+
     slideContainer.insertBefore(menu, contentArea);
     const menuLinks = menu.querySelectorAll('a');
 
-    // --- 4. Создание кнопок навигации ---
+
     const navigation = document.createElement('div');
     navigation.id = 'slide-navigation';
     const prevButton = document.createElement('button');
-    prevButton.textContent = 'Назад';
+    prevButton.textContent = 'Back';
     const nextButton = document.createElement('button');
-    nextButton.textContent = 'Вперед';
+    nextButton.textContent = 'Next';
     navigation.appendChild(prevButton);
     navigation.appendChild(nextButton);
     prevButton.onclick = () => showSlide(currentIndex - 1);
@@ -91,7 +91,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     let currentIndex = 0;
 
-    // --- 5. Функция показа слайдов ---
+
     function showSlide(index) {
         if (index < 0 || index >= slides.length) return;
 
@@ -112,12 +112,18 @@ document.addEventListener('DOMContentLoaded', function() {
         setTimeout(() => { if(window.mermaid) { mermaid.run(); } }, 0);
     }
 
-    // --- 6. Навигация с клавиатуры ---
     document.addEventListener('keydown', (e) => {
-        if (e.ctrlKey && e.key === 'ArrowRight') { e.preventDefault(); showSlide(currentIndex + 1); }
-        if (e.ctrlKey && e.key === 'ArrowLeft') { e.preventDefault(); showSlide(currentIndex - 1); }
+                if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') {
+            e.preventDefault();
+            showSlide(currentIndex + 1);
+        }
+        else if (e.key === 'ArrowLeft' || e.key === 'Backspace' || e.key === 'PageUp') {
+            e.preventDefault();
+            showSlide(currentIndex - 1);
+        }
     });
 
-    // --- Инициализация ---
+
     showSlide(1);
+
 });
