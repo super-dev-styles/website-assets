@@ -1,0 +1,147 @@
+html {
+    background: #ffffff;
+}
+
+html.light {
+    background: #ffffff;
+}
+
+body {
+    margin: 0;
+    background: inherit;
+}
+
+.content {
+    max-width: 1080px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 50px 20px 100px;
+
+    background: #ffffff;
+
+}
+
+
+#slide-menu,
+#slide-navigation,
+#menu-toggle {
+    display: none;
+}
+
+/* Применяем стили только для больших экранов */
+@media (min-width: 1024px) {
+
+    /* 1. Главный контейнер для меню и контента */
+    .slide-container {
+        display: flex;
+        align-items: flex-start;
+    }
+
+    /* 2. Боковое меню */
+    #slide-menu {
+        display: block;
+        position: fixed;
+        top:0;
+        width: 300px;
+        height: 100vh;
+        background-color: #ffffff;
+        padding: 80px 10px;
+        overflow-y: auto;
+        border-right: 2px solid #e0e0e0;
+        z-index: 1000;
+        flex-shrink: 0;
+        transition: transform 0.3s ease;
+    }
+
+    #slide-menu a {
+        display: block;
+        padding: 10px 10px;
+        color: #333;
+        text-decoration: none;
+        font-size: 1.1rem;
+        border-radius: 5px;
+        transition: background-color 2s;
+    }
+
+    #slide-menu a:hover {
+        background-color: #e9e9e9;
+    }
+
+    #slide-menu a.active-link {
+        font-weight: bold;
+        color: #007bff;
+        background-color: #f2f2f2;
+    }
+
+    /* 3. Основной контент внутри контейнера */
+    .slide-container > .content {
+        flex-grow: 1;
+        min-width: 0;
+
+        background-color: #e8ebf1;
+    }
+
+    /* 4. Логика слайдов */
+    .slide {
+        visibility: hidden; opacity: 0; height: 0; overflow: hidden;
+        transition: opacity 0.2s ease-in-out;
+    }
+    .slide.active {
+        visibility: visible; opacity: 1; height: auto; overflow: visible;
+    }
+
+    /* 5. Кнопки навигации */
+    #slide-navigation {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 40px;
+        padding-top: 20px;
+    }
+    #slide-navigation button {
+        padding: 10px 25px;
+        font-size: 16px;
+        cursor: pointer;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+    #slide-navigation button:disabled {
+        background-color: #cccccc;
+        cursor: not-allowed;
+    }
+
+    /* 6. Кнопка сворачивания меню */
+    #menu-toggle {
+        display: block;
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        width: 40px;
+        height: 40px;
+        background: #f7f7f7;
+        border: 1px solid #9b9b9b;
+        border-radius: 5px;
+        cursor: pointer;
+        z-index: 1001;
+    }
+    #menu-toggle span {
+        display: block;
+        background: #333;
+        height: 2px;
+        margin: 7px auto;
+        width: 70%;
+        transition: all 0.3s;
+    }
+
+    /* 7. Стили для свернутого состояния */
+    .menu-collapsed #slide-menu {
+        transform: translateX(-100%);
+
+    }
+}
+
+html.light .content {
+    background-color: #ffffff !important;
+}
