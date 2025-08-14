@@ -27,7 +27,7 @@ body {
 }
 
 
-@media (min-width: 1024px) {
+@media (min-width: 360px) {
 
     .slide-container {
         display: flex;
@@ -136,4 +136,5 @@ body {
 html.light .content {
     background-color: #ffffff !important;
 }
+
 
