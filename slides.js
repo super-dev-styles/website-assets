@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const mobileBreakpoint = 1024;
+    const mobileBreakpoint = 360;
     if (window.innerWidth < mobileBreakpoint) { return; }
 
     const contentArea = document.querySelector('.content');
@@ -127,3 +127,4 @@ document.addEventListener('DOMContentLoaded', function() {
     showSlide(1);
 
 });
+
