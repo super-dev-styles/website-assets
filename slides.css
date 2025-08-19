@@ -141,3 +141,23 @@ body {
 html.light .content {
     background-color: #ffffff !important;
 }
+
+.site-footer {
+    background-color: transparent;
+    text-align: center;
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+}
+
+.footer-logo-link {
+    display: block;
+    width:  350px;
+    height: 150px;
+
+    background-image: url('https://cdn.javarush.com/images/article/9d50fda9-ff81-417c-a292-b728136d53f7/original.png');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
