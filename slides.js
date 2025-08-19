@@ -124,7 +124,8 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
 
-    showSlide(1);
+    showSlide(0);
 
 });
+
 
